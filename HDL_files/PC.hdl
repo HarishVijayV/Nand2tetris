@@ -1,0 +1,25 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/pc.hdl
+
+/**
+ * Exclusive-or gate:
+ * out = not (a == b)
+ */
+
+CHIP PC {
+    IN in[16],load,inc,reset;
+    OUT out[16];
+
+    PARTS:
+    // Put your code here:
+    Inc16(in=FBout,out=incout);
+    Mux16(a=FBout,b=incout,sel=inc,out=w0);
+    Mux16(a=w0,b=in,sel=load,out=w1);
+    Mux16(a=w1,b=false,sel=reset,out=cout);
+   
+    or3input(a=inc,b=load,c=reset,out=regload);
+    
+    Register(in=cout,load=regload,out=out,out=FBout);
+}

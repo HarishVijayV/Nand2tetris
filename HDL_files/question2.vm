@@ -1,0 +1,91 @@
+// the heap memory starts from the memory-segment 2048 and also push that 0 command
+function question2.main 0
+push constant 2048
+pop temp 0 //base address
+push constant 10
+pop temp 1 //array-length
+push constant 0
+pop temp 2 //i
+
+label loop
+push temp 2
+push temp 1
+gt
+if-goto finish
+push temp 0
+push temp 2
+add
+pop pointer 1
+push temp 2
+pop that 0
+
+push temp 2
+push constant 1
+add
+pop temp 2
+goto loop
+label finish
+// till here we have initialized the with the consectuive elemenst's
+push temp 0  //argument 0 base-address
+push temp 1  //argument 1 length
+call question2.sum 2
+label koko
+goto koko
+
+function question2.sum 2
+push constant 0
+pop local 0 //sum
+push constant 1
+pop local 1 //n
+label loop
+push local 1
+push argument 1
+gt
+if-goto end
+push argument 0
+push local 1
+add
+pop pointer 1
+push that 0
+push local 0
+add
+pop local 0
+
+push constant 1
+push local 1
+add
+pop local 1
+goto loop
+label end
+push local 0
+return
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/02/fulladdermux8.hdl
+
+/**
+ * Computes the sum of three bits.
+ */
+
+CHIP fulladdermux8 {
+    IN a, b, c;  // 1-bit inputs
+    OUT sum,     // Right bit of a + b + c
+        carry;   // Left bit of a + b + c
+
+    PARTS:
+    // Put you code here:
+   
+  mux8(a=false,b=true,c=true,d=false,e=true,f=false,g=false,h=true,sel[0]=a,sel[1]=b,sel[2]=c,out=sum);
+  mux8(a=false,b=false,c=false,d=true,e=false,f=true,g=true,h=true,sel[0]=a,sel[1]=b,sel[2]=c,out=carry);
+}
